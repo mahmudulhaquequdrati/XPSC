@@ -9,32 +9,30 @@ int main()
     {
         int n;
         cin >> n;
-        vector<int> a(n);
-
-        int odd_sum = 0;
-        int even_sum = 0;
-
+        int a[n];
         for (int i = 0; i < n; i++)
         {
             cin >> a[i];
-            if (i % 2 == 0)
+            a[i] %= 2;
+        }
+
+        int x = a[0], y = a[1];
+        for (int i = 0; i < n; i += 2)
+        {
+            if (a[i] != x)
             {
-                even_sum += a[i];
+                cout << "NO" << endl;
             }
-            else
+        }
+        for (int i = 1; i < n; i += 2)
+        {
+            if (a[i] != y)
             {
-                odd_sum += a[i];
+                cout << "NO" << endl;
             }
         }
 
-        if (even_sum >= odd_sum)
-        {
-            cout << "YES" << endl;
-        }
-        else
-        {
-            cout << "NO" << endl;
-        }
+        cout << "YES" << endl;
     }
 
     return 0;
